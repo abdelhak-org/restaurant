@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
-import { Award, ChefHat, Heart, Users } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Heart, Leaf, Recycle } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { SITE_CONFIG } from "@/lib/constants";
+import { ReservationDialog } from "@/components/forms/reservation-dialog";
+import {
+  SITE_CONFIG,
+  RESTAURANT_STATS,
+  CHEF_INFO,
+  TEAM_MEMBERS,
+  PHILOSOPHY_VALUES,
+} from "@/lib/constants";
+
+const iconMap: Record<string, React.ReactNode> = {
+  leaf: <Leaf className="h-6 w-6" />,
+  recycle: <Recycle className="h-6 w-6" />,
+  heart: <Heart className="h-6 w-6" />,
+};
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,160 +30,242 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="py-12 md:py-20">
+      <section className="relative min-h-80 md:min-h-96 flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&q=80"
+            alt="Restaurant interior"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold italic tracking-tight mb-4">
+            More Than Just Food – A Legacy of Flavor
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+            Experience the passion, tradition, and artistry in every bite at{" "}
+            {SITE_CONFIG.name}.
+          </p>
+        </div>
+      </section>
+
+      {/* Our Origins Section */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight">Our Story</h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Founded with a passion for authentic French cuisine,{" "}
-              {SITE_CONFIG.name} has been serving exquisite dishes since 2010.
-              Our journey began with a simple dream: to bring the heart of Paris
-              to your table.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content Side */}
+            <div>
+              <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+                Our Origins
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                From a Humble Kitchen to the City&apos;s Heart
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  {SITE_CONFIG.name} wasn&apos;t built in a boardroom. It
+                  started in {RESTAURANT_STATS.establishedYear} with a
+                  grandmother&apos;s recipe book and a simple passion for
+                  authentic flavors. What began as a small family kitchen with
+                  just four tables has grown into a culinary destination beloved
+                  by the city.
+                </p>
+                <p>
+                  We believe that every meal tells a story. Ours is one of
+                  perseverance, family, and the relentless pursuit of the
+                  perfect taste. We honor our roots by keeping traditional
+                  techniques alive while embracing modern culinary innovation.
+                </p>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 mt-8">
+                <div>
+                  <p className="text-3xl md:text-4xl font-bold text-primary">
+                    {RESTAURANT_STATS.yearsOfService}+
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Years of Service
+                  </p>
+                </div>
+                <div>
+                  <p className="text-3xl md:text-4xl font-bold text-primary">
+                    {(RESTAURANT_STATS.happyGuests / 1000).toFixed(0)}k+
+                  </p>
+                  <p className="text-sm text-muted-foreground">Happy Guests</p>
+                </div>
+                <div>
+                  <p className="text-3xl md:text-4xl font-bold text-primary">
+                    {RESTAURANT_STATS.signatureDishes}+
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    Signature Dishes
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Image Side */}
+            <div className="relative">
+              <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+                  alt="Chef preparing food"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="border-t py-20">
+      {/* Our Philosophy Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold">Our Values</h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <ChefHat className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold">Excellence</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    We strive for perfection in every dish we create.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Philosophy
+            </h2>
+            <p className="text-muted-foreground">
+              We believe in food that nourishes the soul as well as the body.
+              Our core values guide every decision we make in the kitchen.
+            </p>
+          </div>
 
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Heart className="h-6 w-6 text-primary" />
+          <div className="grid md:grid-cols-3 gap-8">
+            {PHILOSOPHY_VALUES.map((value) => (
+              <Card
+                key={value.id}
+                className="border-0 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+                    {iconMap[value.icon]}
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold">Passion</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Cooking is our art, and passion is our secret ingredient.
+                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm">
+                    {value.description}
                   </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Award className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold">Quality</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    Only the finest ingredients make it to our kitchen.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="rounded-full bg-primary/10 p-3">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="mt-4 text-xl font-semibold">Community</h3>
-                  <p className="mt-2 text-muted-foreground">
-                    We cherish our guests and the memories we create together.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="border-t bg-muted/50 py-20">
+      {/* Meet the Chef Section */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold">Meet Our Team</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Behind every great dish is a dedicated team of culinary artists.
-            </p>
-          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Chef Image */}
+            <div className="relative">
+              <div className="relative aspect-square lg:aspect-4/5 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src={CHEF_INFO.image}
+                  alt={CHEF_INFO.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-24 w-24 rounded-full bg-muted" />
-                  <h3 className="mt-4 text-xl font-semibold">
-                    Jean-Pierre Martin
-                  </h3>
-                  <p className="text-sm text-primary">Executive Chef</p>
-                  <p className="mt-2 text-muted-foreground">
-                    With 25 years of experience, Chef Jean-Pierre brings the
-                    essence of French gastronomy to every plate.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Chef Info */}
+            <div className="lg:pl-8">
+              <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+                Head Executive Chef
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Meet Chef {CHEF_INFO.name.split(" ")[0]}
+              </h2>
 
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-24 w-24 rounded-full bg-muted" />
-                  <h3 className="mt-4 text-xl font-semibold">Marie Dubois</h3>
-                  <p className="text-sm text-primary">Pastry Chef</p>
-                  <p className="mt-2 text-muted-foreground">
-                    Marie&apos;s delicate pastries and desserts are the perfect
-                    ending to any meal.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              {/* Quote */}
+              <blockquote className="border-l-4 border-primary pl-4 mb-6">
+                <p className="text-lg italic text-muted-foreground">
+                  &ldquo;{CHEF_INFO.quote}&rdquo;
+                </p>
+              </blockquote>
 
-            <Card>
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="h-24 w-24 rounded-full bg-muted" />
-                  <h3 className="mt-4 text-xl font-semibold">
-                    Pierre Lefebvre
-                  </h3>
-                  <p className="text-sm text-primary">Sommelier</p>
-                  <p className="mt-2 text-muted-foreground">
-                    Pierre curates our wine selection with expertise and
-                    passion.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              <p className="text-muted-foreground mb-8">{CHEF_INFO.bio}</p>
+
+              <Button asChild className="group">
+                <Link href="/menu">
+                  View Chef&apos;s Specials
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="border-t py-20">
+      {/* Meet the Team Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold">Our Philosophy</h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              At {SITE_CONFIG.name}, we believe that dining is more than just
-              eating—it&apos;s an experience. Every dish tells a story, every
-              ingredient has a purpose, and every guest deserves our very best.
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <p className="text-sm font-medium uppercase tracking-widest text-primary mb-3">
+              The Family
             </p>
-            <p className="mt-4 text-lg text-muted-foreground">
-              We honor traditional French cooking techniques while embracing
-              modern presentation. Our commitment to sustainability means we
-              work closely with local farmers and suppliers to bring you the
-              freshest seasonal ingredients.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet the Team
+            </h2>
+            <p className="text-muted-foreground">
+              Behind every great meal is a dedicated team. These are the faces
+              that make {SITE_CONFIG.name} experience possible.
             </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {TEAM_MEMBERS.map((member) => (
+              <div key={member.id} className="group">
+                <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-lg mb-4">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <h3 className="font-semibold">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24 bg-foreground text-background">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Taste the Passion?
+            </h2>
+            <p className="text-lg opacity-80 mb-8">
+              Join us for an unforgettable dining experience. Whether it&apos;s
+              a romantic dinner or a family gathering, we have a table waiting
+              for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <ReservationDialog />
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-background text-background hover:bg-background hover:text-foreground"
+              >
+                <Link href="/menu">View Menu</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

@@ -50,6 +50,7 @@ export const MENU_ITEMS = {
       price: 12,
       image:
         "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=80",
+      tags: ["vegetarian"],
     },
     {
       id: 2,
@@ -58,6 +59,7 @@ export const MENU_ITEMS = {
       price: 16,
       image:
         "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 3,
@@ -67,6 +69,7 @@ export const MENU_ITEMS = {
       price: 14,
       image:
         "https://images.unsplash.com/photo-1626200419199-391ae4be7a41?w=800&q=80",
+      tags: [],
     },
     {
       id: 4,
@@ -76,6 +79,7 @@ export const MENU_ITEMS = {
       price: 15,
       image:
         "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 5,
@@ -85,6 +89,7 @@ export const MENU_ITEMS = {
       price: 11,
       image:
         "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=800&q=80",
+      tags: ["vegetarian"],
     },
     {
       id: 6,
@@ -94,6 +99,7 @@ export const MENU_ITEMS = {
       price: 24,
       image:
         "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=800&q=80",
+      tags: ["seasonal"],
     },
   ],
   mains: [
@@ -105,6 +111,7 @@ export const MENU_ITEMS = {
       price: 32,
       image:
         "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=800&q=80",
+      tags: [],
     },
     {
       id: 8,
@@ -114,6 +121,7 @@ export const MENU_ITEMS = {
       price: 36,
       image:
         "https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 9,
@@ -122,6 +130,7 @@ export const MENU_ITEMS = {
       price: 42,
       image:
         "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 10,
@@ -131,6 +140,7 @@ export const MENU_ITEMS = {
       price: 34,
       image:
         "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 11,
@@ -139,6 +149,7 @@ export const MENU_ITEMS = {
       price: 45,
       image:
         "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+      tags: ["gluten-free"],
     },
     {
       id: 12,
@@ -148,6 +159,7 @@ export const MENU_ITEMS = {
       price: 38,
       image:
         "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=800&q=80",
+      tags: ["gluten-free", "spicy"],
     },
   ],
   desserts: [
@@ -158,6 +170,7 @@ export const MENU_ITEMS = {
       price: 10,
       image:
         "https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?w=800&q=80",
+      tags: ["vegetarian", "gluten-free"],
     },
     {
       id: 14,
@@ -166,6 +179,7 @@ export const MENU_ITEMS = {
       price: 12,
       image:
         "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=800&q=80",
+      tags: ["vegetarian"],
     },
     {
       id: 15,
@@ -174,6 +188,7 @@ export const MENU_ITEMS = {
       price: 11,
       image:
         "https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=800&q=80",
+      tags: ["vegetarian", "gluten-free"],
     },
     {
       id: 16,
@@ -183,6 +198,7 @@ export const MENU_ITEMS = {
       price: 13,
       image:
         "https://images.unsplash.com/photo-1612203985729-70726954388c?w=800&q=80",
+      tags: ["vegetarian"],
     },
     {
       id: 17,
@@ -192,6 +208,7 @@ export const MENU_ITEMS = {
       price: 14,
       image:
         "https://images.unsplash.com/photo-1587314168485-3236d6710814?w=800&q=80",
+      tags: ["vegetarian"],
     },
     {
       id: 18,
@@ -200,6 +217,7 @@ export const MENU_ITEMS = {
       price: 15,
       image:
         "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=800&q=80",
+      tags: ["vegetarian"],
     },
   ],
   drinks: [
@@ -210,6 +228,7 @@ export const MENU_ITEMS = {
       price: 9,
       image:
         "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80",
+      tags: [],
     },
     {
       id: 20,
@@ -218,6 +237,7 @@ export const MENU_ITEMS = {
       price: 9,
       image:
         "https://images.unsplash.com/photo-1566995541428-f2246c17cda1?w=800&q=80",
+      tags: [],
     },
     {
       id: 21,
@@ -226,6 +246,7 @@ export const MENU_ITEMS = {
       price: 5,
       image:
         "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80",
+      tags: [],
     },
     {
       id: 22,
@@ -234,6 +255,7 @@ export const MENU_ITEMS = {
       price: 18,
       image:
         "https://images.unsplash.com/photo-1549918864-48ac978761a4?w=800&q=80",
+      tags: [],
     },
     {
       id: 23,
@@ -242,6 +264,7 @@ export const MENU_ITEMS = {
       price: 16,
       image:
         "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=800&q=80",
+      tags: [],
     },
     {
       id: 24,
@@ -250,8 +273,19 @@ export const MENU_ITEMS = {
       price: 6,
       image:
         "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=800&q=80",
+      tags: [],
     },
   ],
+} as const;
+
+export const CHEFS_RECOMMENDATION = {
+  id: 25,
+  name: "Lobster Thermidor",
+  description:
+    "Fresh whole lobster stuffed with a rich mixture of lobster meat, egg yolks, and brandy, topped with gruyère cheese and oven-browned.",
+  price: 45,
+  image:
+    "https://images.unsplash.com/photo-1553247407-23251ce81f59?w=1200&q=80",
 } as const;
 
 export const TESTIMONIALS = [
@@ -313,3 +347,120 @@ export const TIME_SLOTS = [
 ] as const;
 
 export const PARTY_SIZES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
+
+export const FEATURED_DISHES = [
+  {
+    id: 1,
+    name: "Grilled Salmon",
+    description:
+      "Fresh Atlantic salmon seared to perfection served with grilled asparagus",
+    price: 28,
+    image:
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80",
+  },
+  {
+    id: 2,
+    name: "Truffle Pasta",
+    description:
+      "Handmade tagliatelle tossed in a creamy sauce with black truffle shavings",
+    price: 24,
+    image:
+      "https://images.unsplash.com/photo-1556761223-4c4282c73f77?w=800&q=80",
+  },
+  {
+    id: 3,
+    name: "Red Velvet Cake",
+    description: "Rich cocoa dessert layered with cream cheese frosting",
+    price: 12,
+    image:
+      "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=800&q=80",
+  },
+  {
+    id: 4,
+    name: "Reserve Steak",
+    description: "Aged 5 years. Perfectly grilled to your preference",
+    price: 45,
+    image:
+      "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80",
+  },
+  {
+    id: 5,
+    name: "Lobster Bisque",
+    description: "Creamy lobster soup with a hint of brandy and fresh herbs",
+    price: 18,
+    image:
+      "https://images.unsplash.com/photo-1594756202469-9ff9799b2e4e?w=800&q=80",
+  },
+] as const;
+
+export const RESTAURANT_STATS = {
+  yearsOfService: 25,
+  happyGuests: 120000,
+  signatureDishes: 50,
+  establishedYear: 1995,
+} as const;
+
+export const CHEF_INFO = {
+  name: "Antonio Rossi",
+  title: "Head Executive Chef",
+  image:
+    "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80",
+  quote:
+    "Cooking is not just about ingredients, it's about the memory you create. Every dish is a chapter in our story.",
+  bio: "With over 20 years of culinary experience across Europe, Chef Antonio brings a unique fusion of traditional techniques and modern flair to every dish. His journey began in the vineyards of Tuscany and has led him to create a menu that celebrates the simplicity of perfect ingredients.",
+} as const;
+
+export const TEAM_MEMBERS = [
+  {
+    id: 1,
+    name: "Jean-Pierre Martin",
+    role: "Sous Chef",
+    image:
+      "https://images.unsplash.com/photo-1583394293214-28ez4ba29e5e?w=400&q=80",
+  },
+  {
+    id: 2,
+    name: "Marie Dubois",
+    role: "Pastry Chef",
+    image:
+      "https://images.unsplash.com/photo-1595257841889-eca2678454e2?w=400&q=80",
+  },
+  {
+    id: 3,
+    name: "Pierre Lefebvre",
+    role: "Sommelier",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+  },
+  {
+    id: 4,
+    name: "Sophie Laurent",
+    role: "Restaurant Manager",
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+  },
+] as const;
+
+export const PHILOSOPHY_VALUES = [
+  {
+    id: 1,
+    title: "Farm to Table",
+    description:
+      "We skip the middleman. Fresh ingredients sourced directly from local farmers daily ensure the highest quality and support our community.",
+    icon: "leaf",
+  },
+  {
+    id: 2,
+    title: "Zero Waste",
+    description:
+      "We are committed to sustainable practices. From composting to creative menu planning, we strive to minimize our environmental footprint.",
+    icon: "recycle",
+  },
+  {
+    id: 3,
+    title: "Authentic Hospitality",
+    description:
+      "Treating every guest like family is at the core of our service. We don't just serve food, we create memories and lasting connections.",
+    icon: "heart",
+  },
+] as const;

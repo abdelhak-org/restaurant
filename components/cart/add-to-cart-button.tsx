@@ -1,21 +1,32 @@
 "use client";
 
+import * as React from "react";
 import { Plus, Minus } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/lib/cart-context";
 
-interface AddToCartButtonProps {
+export interface AddToCartButtonProps
+  extends Omit<React.ComponentProps<typeof Button>, "onClick"> {
   item: {
     id: number;
     name: string;
     price: number;
     category: string;
   };
+  showQuantityControls?: boolean;
 }
 
-export function AddToCartButton({ item }: AddToCartButtonProps) {
+export function AddToCartButton({
+  item,
+  children,
+  showQuantityControls = true,
+  variant,
+  size,
+  className,
+  ...props
+}: AddToCartButtonProps) {
   const { items, addItem, updateQuantity } = useCart();
 
   const cartItem = items.find((i) => i.id === item.id);
@@ -37,11 +48,21 @@ export function AddToCartButton({ item }: AddToCartButtonProps) {
     }
   };
 
-  if (quantity === 0) {
+  if (quantity === 0 || !showQuantityControls) {
     return (
-      <Button onClick={handleAdd} size="sm" className="w-full">
-        <Plus className="mr-2 h-4 w-4" />
-        Add to Cart
+      <Button
+        onClick={handleAdd}
+        variant={variant}
+        size={size ?? "sm"}
+        className={className ?? "w-full"}
+        {...props}
+      >
+        {children ?? (
+          <>
+            <Plus className="mr-2 h-4 w-4" />
+            Add to Cart
+          </>
+        )}
       </Button>
     );
   }
