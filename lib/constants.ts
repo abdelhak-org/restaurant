@@ -398,6 +398,8 @@ export const RESTAURANT_STATS = {
   happyGuests: 120000,
   signatureDishes: 50,
   establishedYear: 1995,
+  originalRecipes: 75,
+  customerRating: 4.9,
 } as const;
 
 export const CHEF_INFO = {
