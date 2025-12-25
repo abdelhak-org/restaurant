@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MENU_CATEGORIES, MENU_ITEMS } from "@/lib/constants";
+import { MenuContent } from "@/components/menu-content";
 
 export const metadata: Metadata = {
   title: "Menu",
@@ -21,44 +19,13 @@ export default function MenuPage() {
             Discover our carefully crafted selection of classic French dishes,
             prepared with passion and the finest ingredients.
           </p>
+          <p className="mt-2 text-sm text-primary font-medium">
+            Order online for pickup or delivery!
+          </p>
         </div>
 
-        {/* Menu Tabs */}
-        <Tabs defaultValue="starters" className="mt-12">
-          <TabsList className="mx-auto grid w-full max-w-2xl grid-cols-4">
-            {MENU_CATEGORIES.map((category) => (
-              <TabsTrigger key={category.id} value={category.id}>
-                {category.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {MENU_CATEGORIES.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="mt-8">
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {MENU_ITEMS[category.id as keyof typeof MENU_ITEMS].map(
-                  (item) => (
-                    <Card key={item.id}>
-                      <CardHeader>
-                        <div className="flex items-start justify-between">
-                          <CardTitle className="text-xl">{item.name}</CardTitle>
-                          <span className="text-lg font-semibold text-primary">
-                            ${item.price}
-                          </span>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  )
-                )}
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+        {/* Menu with Cart */}
+        <MenuContent />
 
         {/* Note */}
         <div className="mx-auto mt-12 max-w-2xl text-center">

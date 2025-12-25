@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 
+import { NewsletterForm } from "@/components/forms";
 import {
   NAVIGATION_LINKS,
   RESTAURANT_INFO,
@@ -13,6 +14,21 @@ export function Footer() {
 
   return (
     <footer className="border-t bg-background">
+      {/* Newsletter Section */}
+      <div className="border-b bg-muted/30">
+        <div className="container mx-auto px-4 py-12">
+          <div className="mx-auto max-w-xl text-center">
+            <h3 className="text-xl font-bold">Stay Updated</h3>
+            <p className="mt-2 text-muted-foreground">
+              Subscribe to our newsletter for special offers and updates.
+            </p>
+            <div className="mt-6">
+              <NewsletterForm />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}

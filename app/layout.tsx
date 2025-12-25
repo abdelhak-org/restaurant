@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme";
 import { Toaster } from "@/components/ui/sonner";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { CartProvider } from "@/lib/cart-context";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const geistSans = Geist({
@@ -50,8 +52,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-          {children}
-          <Toaster />
+          <CartProvider>
+            {children}
+            <ScrollToTop />
+            <Toaster />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

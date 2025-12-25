@@ -13,6 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme";
+import { CartSheet } from "@/components/cart";
 import { NAVIGATION_LINKS, SITE_CONFIG } from "@/lib/constants";
 
 export function Header() {
@@ -43,6 +44,7 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
+          <CartSheet />
           <ThemeToggle />
 
           {/* Mobile Navigation */}
